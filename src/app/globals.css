@@ -4,22 +4,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 0 0% 0%;
+    --foreground: 142 72% 29%;
   }
 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-  }
-}
-
-@layer base {
   body {
-    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    @apply bg-black text-green-500;
   }
 }
 
+/* Animación del cursor parpadeante */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Animación de fade in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -37,10 +41,27 @@
 
 /* Efecto de hover suave para las cards */
 .group:hover .group-hover\:shadow-glow {
-  box-shadow: 0 0 20px theme('colors.cyan.500' / 10%);
+  box-shadow: 0 0 20px theme('colors.green.500' / 10%);
 }
 
 /* Transiciones suaves */
 * {
   @apply transition-colors duration-200;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-500/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-500/50;
 } 

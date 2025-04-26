@@ -1,103 +1,109 @@
 import React from 'react'
-import { FaShieldAlt, FaCode, FaCertificate } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaShieldAlt, FaCode, FaCertificate } from 'react-icons/fa'
+import ParticlesBackground from '../components/ParticlesBackground'
+import HackerTerminal from '../components/HackerTerminal'
 
 export default function Home(): React.ReactElement {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      {/* Header con efecto de cristal */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-900/70 border-b border-gray-800">
+    <main className="min-h-screen bg-black text-green-500 relative overflow-hidden">
+      <ParticlesBackground />
+      
+      {/* Header con efecto glassmorphism */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-green-500/30">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <span className="text-cyan-400 font-bold text-xl">Portfolio</span>
+            <span className="font-mono text-xl">./portfolio</span>
             <div className="space-x-6">
-              <a href="#certificaciones" className="text-gray-300 hover:text-cyan-400 transition-colors">Certificaciones</a>
-              <a href="#proyectos" className="text-gray-300 hover:text-cyan-400 transition-colors">Proyectos</a>
-              <a href="#habilidades" className="text-gray-300 hover:text-cyan-400 transition-colors">Habilidades</a>
+              <a href="#about" className="hover:text-green-400 transition-colors">Sobre mí</a>
+              <a href="#certs" className="hover:text-green-400 transition-colors">Certificaciones</a>
+              <a href="#contact" className="hover:text-green-400 transition-colors">Contacto</a>
             </div>
           </div>
         </nav>
       </header>
 
       <div className="container mx-auto px-6">
-        {/* Hero Section con animación suave */}
-        <section className="py-20 text-center animate-fade-in">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Mi Portafolio de Ciberseguridad
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Especialista en seguridad informática y análisis de vulnerabilidades,
-            comprometido con la protección digital y la innovación en ciberseguridad.
-          </p>
+        {/* Hero Section */}
+        <section className="py-20 text-center">
+          <HackerTerminal />
+          
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 mt-8">
+            <a href="https://github.com/yourusername" className="text-3xl hover:text-green-400 transition-transform hover:scale-110">
+              <FaGithub />
+            </a>
+            <a href="https://linkedin.com/in/yourusername" className="text-3xl hover:text-green-400 transition-transform hover:scale-110">
+              <FaLinkedin />
+            </a>
+            <a href="mailto:your@email.com" className="text-3xl hover:text-green-400 transition-transform hover:scale-110">
+              <FaEnvelope />
+            </a>
+          </div>
+
+          {/* CV Download Button */}
+          <button className="mt-8 px-6 py-3 bg-green-500/20 border border-green-500/30 rounded-lg hover:bg-green-500/30 transition-all flex items-center gap-2 mx-auto">
+            <FaFileDownload /> Descargar CV
+          </button>
         </section>
 
-        {/* Secciones Principales con Cards mejoradas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16">
-          {/* Certificaciones */}
-          <section id="certificaciones" className="group">
-            <div className="h-full bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 
-                          shadow-lg hover:shadow-cyan-500/10 transition-all duration-300
-                          hover:border-cyan-500/50">
-              <div className="flex items-center mb-6">
-                <FaCertificate className="text-4xl text-cyan-400 mr-4" />
-                <h2 className="text-2xl font-bold text-white">Certificaciones</h2>
+        {/* About Section */}
+        <section id="about" className="py-16">
+          <div className="bg-black/30 backdrop-blur-sm p-8 rounded-lg border border-green-500/30">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <FaShieldAlt /> Sobre Mí
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Soy un Ingeniero en Ciberseguridad especializado en pentesting y análisis de vulnerabilidades.
+              Mi enfoque se centra en la seguridad ofensiva y la protección de infraestructuras críticas.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div className="bg-black/50 p-4 rounded-lg border border-green-500/20">
+                <h3 className="font-bold mb-2">Especialidades</h3>
+                <ul className="list-disc list-inside text-gray-300">
+                  <li>Pentesting Web</li>
+                  <li>Análisis de Malware</li>
+                  <li>Seguridad en Redes</li>
+                  <li>Auditoría de Sistemas</li>
+                </ul>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Formación especializada y certificaciones en ciberseguridad que avalan
-                mi experiencia y conocimientos en el campo.
-              </p>
-              <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
-                Ver certificaciones
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
+              <div className="bg-black/50 p-4 rounded-lg border border-green-500/20">
+                <h3 className="font-bold mb-2">Herramientas</h3>
+                <ul className="list-disc list-inside text-gray-300">
+                  <li>Kali Linux</li>
+                  <li>Metasploit</li>
+                  <li>Burp Suite</li>
+                  <li>Wireshark</li>
+                </ul>
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Proyectos */}
-          <section id="proyectos" className="group">
-            <div className="h-full bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 
-                          shadow-lg hover:shadow-cyan-500/10 transition-all duration-300
-                          hover:border-cyan-500/50">
-              <div className="flex items-center mb-6">
-                <FaCode className="text-4xl text-cyan-400 mr-4" />
-                <h2 className="text-2xl font-bold text-white">Proyectos</h2>
+        {/* Certifications Section */}
+        <section id="certs" className="py-16">
+          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+            <FaCertificate /> Certificaciones
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Ejemplo de certificación */}
+            <div className="group">
+              <div className="h-full bg-black/30 backdrop-blur-sm p-6 rounded-lg border border-green-500/30 
+                            hover:border-green-500/50 transition-all duration-300">
+                <img 
+                  src="/cisco-intro-cybersecurity.png" 
+                  alt="Certificación Cisco" 
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="font-bold mb-2">Introduction to Cybersecurity</h3>
+                <p className="text-gray-300 text-sm mb-4">Cisco Networking Academy</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-400">2024</span>
+                  <a href="#" className="text-green-400 hover:text-green-300 text-sm">Ver credencial →</a>
+                </div>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Portafolio de proyectos y casos de estudio en seguridad informática,
-                demostrando experiencia práctica y resultados.
-              </p>
-              <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
-                Ver proyectos
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
             </div>
-          </section>
-
-          {/* Habilidades */}
-          <section id="habilidades" className="group">
-            <div className="h-full bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 
-                          shadow-lg hover:shadow-cyan-500/10 transition-all duration-300
-                          hover:border-cyan-500/50">
-              <div className="flex items-center mb-6">
-                <FaShieldAlt className="text-4xl text-cyan-400 mr-4" />
-                <h2 className="text-2xl font-bold text-white">Habilidades</h2>
-              </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Competencias técnicas y herramientas especializadas en ciberseguridad,
-                incluyendo análisis de vulnerabilidades y ethical hacking.
-              </p>
-              <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
-                Ver habilidades
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </main>
   )
