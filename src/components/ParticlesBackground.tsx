@@ -13,13 +13,10 @@ export default function ParticlesBackground() {
       id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: -1
-        },
+        fullScreen: false,
         background: {
           color: {
-            value: "#000000",
+            value: "#000",
           },
         },
         fpsLimit: 60,
@@ -28,7 +25,7 @@ export default function ParticlesBackground() {
             value: "#00ff00",
             animation: {
               enable: true,
-              speed: 5,
+              speed: 2,
               sync: false
             }
           },
@@ -36,15 +33,15 @@ export default function ParticlesBackground() {
             color: "#00ff00",
             distance: 150,
             enable: true,
-            opacity: 0.2,
+            opacity: 0.5,
             width: 1,
             triangles: {
               enable: true,
-              opacity: 0.05
+              opacity: 0.1
             }
           },
           collisions: {
-            enable: true,
+            enable: false,
           },
           move: {
             direction: "none",
@@ -53,10 +50,10 @@ export default function ParticlesBackground() {
               default: "bounce",
             },
             random: false,
-            speed: 1,
+            speed: 0.8,
             straight: false,
             attract: {
-              enable: true,
+              enable: false,
               rotateX: 600,
               rotateY: 1200
             }
@@ -64,12 +61,24 @@ export default function ParticlesBackground() {
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1000,
             },
-            value: 80,
+            value: 100,
           },
           opacity: {
-            value: 0.5,
+            value: 0.7,
+            animation: {
+              enable: true,
+              speed: 0.5,
+              minimumValue: 0.3,
+              sync: false
+            }
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            value: { min: 1, max: 2 },
             animation: {
               enable: true,
               speed: 1,
@@ -77,56 +86,35 @@ export default function ParticlesBackground() {
               sync: false
             }
           },
-          shape: {
-            type: ["circle", "triangle"],
-          },
-          size: {
-            value: { min: 1, max: 3 },
-            animation: {
-              enable: true,
-              speed: 2,
-              minimumValue: 0.1,
-              sync: false
-            }
-          },
         },
         interactivity: {
+          detect_on: "canvas",
           events: {
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: "grab",
             },
             resize: true,
           },
           modes: {
-            repulse: {
-              distance: 100,
-              duration: 0.4,
+            grab: {
+              distance: 150,
+              links: {
+                opacity: 0.7
+              }
             },
           },
         },
         detectRetina: true,
-        themes: [
-          {
-            name: "matrix",
-            default: {
-              value: true,
-              mode: "dark"
-            },
-            options: {
-              particles: {
-                color: {
-                  value: ["#00ff00", "#00cc00", "#009900"]
-                },
-                links: {
-                  color: "#00ff00"
-                }
-              }
-            }
-          }
-        ]
       }}
-      className="absolute inset-0 -z-10"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 0,
+      }}
     />
   );
 } 
