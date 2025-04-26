@@ -1,8 +1,9 @@
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
+  "version": 2,
+  "buildCommand": "next build",
+  "devCommand": "next dev",
   "framework": "nextjs",
-  "installCommand": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "outputDirectory": ".next"
 } 
